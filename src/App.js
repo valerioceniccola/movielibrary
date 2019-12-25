@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react';
+import { Container, Row, Col } from 'reactstrap';
+import NavbarDef from "./components/Navbar";
+import MovieList from "./components/MovieList";
+import MovieLibraryContainer from "./containers/MovieLibraryContainer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+
+	// Equivalente di ComponentDidMount
+	useEffect(() => {
+
+	}, []);
+
+	return (
+		<div className="App">
+
+			<NavbarDef />
+
+			<Container className="mt-4">
+
+				<Row className="mb-5">
+					<Col>
+						<MovieLibraryContainer />
+					</Col>
+				</Row>
+
+				<Row>
+					<Col>
+						<MovieList />
+					</Col>
+				</Row>
+
+			</Container>
+
+		</div>
+	);
+
+};
 
 export default App;
