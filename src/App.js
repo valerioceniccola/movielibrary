@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import NavbarDef from "./components/Navbar";
 import MovieList from "./components/MovieList";
 import MovieLibraryContainer from "./containers/MovieLibraryContainer";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 const App = () => {
 
