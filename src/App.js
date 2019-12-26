@@ -16,7 +16,7 @@ const App = () => {
 
 			<NavbarDef />
 
-			<Container className="mt-4">
+			<Container className="mt-4 mb-5">
 
 				<Row className="mb-5">
 					<Col>
@@ -38,3 +38,5 @@ const App = () => {
 };
 
 export default App;
+
+// todo notifiche, segna come visto, routing

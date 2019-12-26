@@ -9,7 +9,6 @@ const MovieItem = ({movie, dispatch, movieLibrary}) => {
 	}, []);
 
 	const addMovieDispatch = (movie) => {
-		console.log(movie);
 		dispatch(addMovie(movie));
 	};
 

@@ -12,12 +12,24 @@ import {createStore} from "redux";
 import {Provider} from 'react-redux';
 import storeReducer from "./reducers";
 
-const store = createStore(storeReducer, {
-	movieLibrary: [
-		{Title: "Star Wars: Episode II - Attack of the Clones", Year: "2002", imdbID: "tt0121765", Type: "movie", Poster: "https://m.media-amazon.com/images/M/MV5BMDAzM2M0Y2UtZjRmZi00MzVlLTg4MjEtOTE3NzU5ZDVlMTU5XkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_SX300.jpg"}
-	]
-});
 
+// Imposto lo store di default
+let defaultStore = {
+	movieLibrary: []
+};
+
+// Se ho lo store salvato nel localstorage, lo recupero e sovrascrivo il defaultStore
+if (localStorage.getItem('reduxStore')) {
+	defaultStore = JSON.parse(localStorage.getItem('reduxStore'));
+}
+
+const store = createStore(storeReducer, defaultStore);
+
+// Quando cambia lo store, salvo nella localstorage
+store.subscribe(() => {
+	const currentState = JSON.stringify(store.getState());
+	localStorage.setItem('reduxStore', currentState);
+});
 
 
 ReactDOM.render(
