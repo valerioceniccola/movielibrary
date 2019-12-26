@@ -9,9 +9,7 @@ const MovieLibraryItem = ({movie, dispatch}) => {
 	}, []);
 
 	const removeMovieDispatch = (imdbID) => {
-
 		dispatch(removeMovie(imdbID))
-
 	};
 
 	return (

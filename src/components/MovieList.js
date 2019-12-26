@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {ListGroup, Alert} from "reactstrap";
-import MovieItem from "./MovieItem";
 import API from "../api";
 import SearchMovie from "./SearchMovie";
 import MovieItemContainer from "../containers/MovieItemContainer";
