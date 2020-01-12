@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {ListGroupItem, Button} from "reactstrap";
-import {addMovie, removeMovie} from "../actions/index";
+import {addMovie, removeMovie, toggleMarkAsWatched} from "../actions/index";
 
 const MovieItem = ({movie, dispatch, movieLibrary}) => {
 
@@ -16,11 +16,18 @@ const MovieItem = ({movie, dispatch, movieLibrary}) => {
 		dispatch(removeMovie(movieID));
 	};
 
+	const toggleMarkAsWatchedDispatch = (movieID) => {
+
+		// Invio la dispatch
+		dispatch(toggleMarkAsWatched(movieID));
+
+	};
+
 	const isMovieInLibrary = (movieID) => {
 
 		return movieLibrary.filter(function(e) {
 			// Return "true" se è nella libreria
-			return e.imdbID === movieID;
+			return e.movieObj.imdbID === movieID;
 		}).length > 0; // con length la funzione filter torna true o false
 
 	};
@@ -31,7 +38,9 @@ const MovieItem = ({movie, dispatch, movieLibrary}) => {
 			<span>
 				{
 					isMovieInLibrary(movie.imdbID) ? (
-						<Button onClick={() => removeMovieDispatch(movie.imdbID)} size="sm" color="danger">Remove from watchlist</Button>
+						<>
+							<Button onClick={() => removeMovieDispatch(movie.imdbID)} size="sm" color="danger">Remove</Button>
+						</>
 					) : (
 						<Button onClick={() => addMovieDispatch(movie)} size="sm" color="primary">Add to watchlist</Button>
 					)

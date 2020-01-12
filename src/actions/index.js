@@ -15,3 +15,12 @@ export const removeMovie = (movieID) => {
 	}
 
 };
+
+export const toggleMarkAsWatched = (movieID) => {
+
+	return {
+		type: 'TOGGLE_MARK_AS_WATCHED',
+		movieID: movieID
+	}
+
+};
